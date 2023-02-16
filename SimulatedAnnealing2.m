@@ -72,15 +72,14 @@ function [ a ] = IsTransition( probability )
         a = 0; 
     end
 end
-%Функция GenerateStateCandidate генерирует кандидата нового 
-%состояния путем реверсирования сегмента текущего маршрута. 
-%Длина сегмента выбирается случайным образом между двумя индексами i и j. 
-%Это гарантирует, что алгоритм исследует широкий спектр решений.
 
-%Обновленная SimulatedAnnealing функция остается такой же, 
-%как и раньше, но OptimiseRoute теперь использует новую GenerateStateCandidate функцию. 
-%С этим обновлением алгоритм должен иметь возможность находить 
-%более короткие маршруты, чем раньше.
+%This function generates a new state candidate by reversing a segment of the current route. 
+%The length of the segment is randomly chosen between two indices, i and j. 
+%This ensures that the algorithm explores a wide range of solutions.
+
+%The updated SimulatedAnnealing function remains the same as before, but 
+%the OptimiseRoute function now uses the new GenerateStateCandidate function. 
+%With this update, the algorithm should be able to find shorter routes than before.
 function [ seq ] = GenerateStateCandidate(seq)
     n = size(seq, 1); % get size of cities indexes array
     i = randi(n); % get a pseudorandom index between 1 and n.
